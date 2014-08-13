@@ -1,0 +1,20 @@
+{
+  "name": "browserify-ng-html2js",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test/spec.js"
+  },
+  "author": "dahl.jonatan@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "through": "~2.3.4",
+    "ng-html2js": "~1.1.0"
+  },
+  "devDependencies": {
+    "browserify": "^5.10.0",
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  }
+}
