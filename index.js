@@ -7,6 +7,7 @@ function isHtml (file) {
 }
 
 module.exports = function(opts) {
+  opts = opts || {};
   opts.module = opts.module || null
 
   return function (file) {
