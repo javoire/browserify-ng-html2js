@@ -35,7 +35,7 @@ Add it to the browserify object and optionally specify a module name. This will 
 gulp.task('scripts', function() {
   return browserify('./src/app.js')
     .transform(ngHtml2Js({
-      module: 'templates
+      module: 'templates'
     }))
     .bundle()
     .pipe(source('bundle.js'))
@@ -56,3 +56,7 @@ module.run(["$templateCache", function($templateCache) {
     '');
 }]);
 ```
+
+## License
+
+[MIT License](http://en.wikipedia.org/wiki/MIT_License)
