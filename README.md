@@ -16,7 +16,7 @@ Add the transform in package.json:
 }
 ```
 
-The templates will be available in their own module based on the file name:
+The templates will be available in their own modules based on their file name:
 
 ```JavaScript
 angular.module('home.html', []).run(["$templateCache", function($templateCache) {
@@ -27,7 +27,7 @@ angular.module('home.html', []).run(["$templateCache", function($templateCache) 
 }]);
 ```
 
-### With gulp
+### With Gulp
 
 Add it to the browserify object and optionally specify a module name. This will attach all templates to the same module.
 
