@@ -2,6 +2,10 @@
 
 Browserify transform to compile angular templates into angular modules. Based on [ng-html2js](https://github.com/yaru22/ng-html2js)
 
+```
+$ npm install browserify-ng-html2js --save-dev
+```
+
 ## Usage
 
 ### Standard
