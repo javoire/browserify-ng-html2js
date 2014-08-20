@@ -8,7 +8,9 @@ $ npm install browserify-ng-html2js --save-dev
 
 ## Usage
 
-### Standard
+Use in either package.json or with gulp:
+
+### a) Package.json
 
 Add the transform in package.json:
 ```JSON
@@ -31,11 +33,16 @@ angular.module('home.html', []).run(["$templateCache", function($templateCache) 
 }]);
 ```
 
-### With Gulp
+### b) With Gulp
 
 Add it to the browserify object and optionally specify a module name. This will attach all templates to the same module.
 
 ```JavaScript
+var gulp  = require('gulp'),
+    browserify = require('browserify'),
+    ngHtml2Js = require('browserify-ng-html2js'),
+    source = require('vinyl-source-stream');
+
 gulp.task('scripts', function() {
   return browserify('./src/app.js')
     .transform(ngHtml2Js({
