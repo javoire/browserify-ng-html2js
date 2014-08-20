@@ -5,13 +5,9 @@ var browserify = require('browserify'),
     expect = require('chai').expect;
 
 describe('ngHtml2Js', function(){
-  var app, output;
-
-  beforeEach(function() {
-    output = fs.readFileSync(__dirname + '/fixtures/output.js', 'utf-8');
-  });
 
   it('should compile html to a browserify wrapped angular module', function(done) {
+    var output = fs.readFileSync(__dirname + '/fixtures/output.js', 'utf-8');
     browserify(__dirname + '/fixtures/app.js')
       .transform(ngHtml2Js({
         module: 'templates'
