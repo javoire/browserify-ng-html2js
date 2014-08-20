@@ -13,9 +13,9 @@ Use in either package.json or with gulp:
 ### a) Package.json
 
 Add the transform in package.json:
-```JSON
+```JavaScript
 {  
-  ...
+  // ...
   "browserify": {
     "transform": ["browserify-ng-html2js"]
   }
