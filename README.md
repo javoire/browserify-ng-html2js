@@ -13,9 +13,9 @@ Use in either package.json or with gulp:
 ### a) Package.json
 
 Add the transform in package.json:
-```JavaScript
+```JSON
 {  
-  // ...
+  ...
   "browserify": {
     "transform": ["browserify-ng-html2js"]
   }
@@ -46,7 +46,7 @@ var gulp  = require('gulp'),
 gulp.task('scripts', function() {
   return browserify('./src/app.js')
     .transform(ngHtml2Js({
-      module: 'templates'
+      module: 'templates' // <---
     }))
     .bundle()
     .pipe(source('bundle.js'))
