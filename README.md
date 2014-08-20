@@ -49,7 +49,8 @@ var gulp  = require('gulp'),
 gulp.task('scripts', function() {
   return browserify('./src/app.js')
     .transform(ngHtml2Js({
-      module: 'templates' // <---
+      module: 'templates', // <---
+      extension: 'ngt' // optionally specify what file types to look for
     }))
     .bundle()
     .pipe(source('bundle.js'))
