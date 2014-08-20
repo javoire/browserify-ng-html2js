@@ -1,5 +1,8 @@
 # browserify-ng-html2js
 
+[![Build Status](https://travis-ci.org/javoire/browserify-ng-html2js.svg?branch=master)](https://travis-ci.org/javoire/browserify-ng-html2js)
+[![Dependency Status](https://david-dm.org/javoire/browserify-ng-html2js.svg)](https://david-dm.org/javoire/browserify-ng-html2js)
+
 Browserify transform to compile angular templates into angular modules. Based on [ng-html2js](https://github.com/yaru22/ng-html2js)
 
 ```
