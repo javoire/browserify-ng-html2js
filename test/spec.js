@@ -1,26 +1,24 @@
 var browserify = require('browserify'),
     fs = require('fs'),
-    ngHtml2js = require('..');
-    require('chai').should();
+    bNgHtml2Js = require('..'),
+    source = require('vinyl-source-stream'),
+    expect = require('chai').expect;
 
-describe('ngHtml2js', function(){
-  var app, templateHtml, templateJs;
+describe('bNgHtml2Js', function(){
+  var app, output;
 
   beforeEach(function() {
-    templateJs = fs.readFileSync(__dirname + '/fixtures/template.js', 'utf-8');
+    output = fs.readFileSync(__dirname + '/fixtures/output.js', 'utf-8');
   });
 
-
-  it('should compile html to angular module', function(done) {
-    var b = browserify(__dirname + '/fixtures/app.js');
-
-    b.transform(ngHtml2Js({
-      module: 'templates'
-    }));
-
-    b.bundle(function(error, bundle) {
-      // TODO. compare fixtures here...
-      done();
-    })
+  it('should compile html to a browserify wrapped angular module', function(done) {
+    browserify(__dirname + '/fixtures/app.js')
+      .transform(bNgHtml2Js({
+        module: 'templates'
+      }))
+      .bundle(function(err, bundle) {
+        expect(output).to.equal(bundle.toString());
+        done();
+      });
   });
 })

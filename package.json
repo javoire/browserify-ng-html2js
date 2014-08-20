@@ -20,6 +20,7 @@
   "devDependencies": {
     "browserify": "^5.10.0",
     "chai": "^1.9.1",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "vinyl-source-stream": "^0.1.1"
   }
 }
