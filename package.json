@@ -2,7 +2,7 @@
   "name": "browserify-ng-html2js",
   "version": "0.1.0",
   "description": "Browserify transform to compile angular templates into angular modules",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha test/spec.js"
   },

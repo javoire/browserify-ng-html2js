@@ -1,6 +1,6 @@
 var browserify = require('browserify'),
     fs = require('fs'),
-    ngHtml2Js = require('..'),
+    ngHtml2Js = require('../lib'),
     source = require('vinyl-source-stream'),
     expect = require('chai').expect;
 
@@ -13,8 +13,12 @@ describe('ngHtml2Js', function(){
         module: 'templates'
       }))
       .bundle(function(err, bundle) {
-        expect(output).to.equal(bundle.toString());
-        done();
+        if (err) {
+          done(err)
+        } else {
+          expect(output).to.equal(bundle.toString());
+          done();
+        };
       });
   });
 })
