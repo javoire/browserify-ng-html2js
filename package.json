@@ -14,8 +14,8 @@
   "homepage": "https://github.com/javoire/browserify-ng-html2js",
   "license": "MIT",
   "dependencies": {
-    "through": "~2.3.4",
-    "ng-html2js": "~1.1.0"
+    "through": "^2.3.6",
+    "ng-html2js": "^1.2.0"
   },
   "devDependencies": {
     "browserify": "^5.10.0",
