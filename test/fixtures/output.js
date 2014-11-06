@@ -14,6 +14,6 @@ module.run(["$templateCache", function($templateCache) {
     '<p>and it should be transformed into a browserify wrapped angular template module</p>\n' +
     '');
 }]);
-})();
+})(module);
 
 },{}]},{},[1]);
