@@ -4,14 +4,7 @@ var template = require('./template.html')
 },{"./template.html":2}],2:[function(require,module,exports){
 function exportNgModule(ngModule){ module.exports = ngModule }
 
-(function(module) {
-    try {
-        module = angular.module("templates");
-    } catch (e) {
-        module = angular.module("templates", []);
-    }
-    exportNgModule(module.run([ "$templateCache", function($templateCache) {
-        $templateCache.put("template.html", "<h2>This is an html template</h2>\n" + "<p>and it should be transformed into a browserify wrapped angular template module</p>\n" + "");
-    } ]));
-})(module);
+exportNgModule(angular.module("template.html", []).run([ "$templateCache", function($templateCache) {
+    $templateCache.put("template.html", "<h2>This is an html template</h2>\n" + "<p>and it should be transformed into a browserify wrapped angular template module</p>\n" + "");
+} ]));
 },{}]},{},[1]);
