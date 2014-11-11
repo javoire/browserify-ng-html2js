@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.3.0
+
+* The angular modules exported as a commonJS module
+* CLI Support
+
 ## Version 0.2.0
 
 * Extension can be specified
