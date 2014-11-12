@@ -1,6 +1,6 @@
 {
   "name": "browserify-ng-html2js",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Browserify transform to compile angular templates into angular modules",
   "main": "lib/index.js",
   "scripts": {
