@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.3.1
+
+* Simpler `module.exports` logic
+
 ## Version 0.3.0
 
 * The angular modules exported as a commonJS module
