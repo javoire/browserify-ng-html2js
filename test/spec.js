@@ -3,10 +3,28 @@ var browserify = require('browserify'),
     ngHtml2Js = require('../lib'),
     source = require('vinyl-source-stream'),
     expect = require('chai').expect,
+    cwd = process.cwd(),
+    path = require('path'),
     exec = require('child_process').exec;
 
 
 describe('ngHtml2Js', function(){
+
+  it('should compile html to a browserify module with parent directory included', function(done) {
+    var output = fs.readFileSync(__dirname + '/fixtures/output-basedir.js', 'utf-8');
+    browserify(__dirname + '/fixtures/app.js')
+      .transform(ngHtml2Js({
+        baseDir: '/test'
+      }))
+      .bundle(function(err, bundle) {
+        if (err) {
+          done(err)
+        } else {
+          expect(output).to.equal(bundle.toString());
+          done();
+        };
+      });
+  });
 
   it('should compile html to a browserify wrapped angular module', function(done) {
     var output = fs.readFileSync(__dirname + '/fixtures/output.js', 'utf-8');
