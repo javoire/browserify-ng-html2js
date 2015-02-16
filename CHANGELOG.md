@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.3
+
+* Optionally specify base directory for filename
+
 ## 0.3.2
 
 * Support for Windows
