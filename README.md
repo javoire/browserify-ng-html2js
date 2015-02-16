@@ -51,6 +51,7 @@ gulp.task('scripts', function() {
     .transform(ngHtml2Js({
       module: 'templates', // optional module name
       extension: 'ngt' // optionally specify what file types to look for
+      baseDir: "src/js" // optionally specify base directory for filename
     }))
     .bundle()
     .pipe(source('bundle.js'))
