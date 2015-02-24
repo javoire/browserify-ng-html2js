@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0
+
+* Stable
+
 ## 0.3.3
 
 * Optionally specify base directory for filename
