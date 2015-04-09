@@ -26,6 +26,21 @@ describe('ngHtml2Js', function(){
       });
   });
 
+  it('should put path in unix-like format even for windows-users', function(done) {
+    browserify(__dirname + '/fixtures/app.js')
+      .transform(ngHtml2Js({
+        baseDir: '/test'
+      }))
+      .bundle(function(err, bundle) {
+        if (err) {
+          done(err)
+        } else {
+          expect(/\/fixtures\/template\.html/.test(bundle.toString())).to.be.true();
+          done();
+        };
+      });
+  });
+
   it('should compile html to a browserify wrapped angular module', function(done) {
     var output = fs.readFileSync(__dirname + '/fixtures/output.js', 'utf-8');
     browserify(__dirname + '/fixtures/app.js')
