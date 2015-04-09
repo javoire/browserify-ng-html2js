@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.0.1
+
+* Template path is printed correctly on windows when using baseDir option
+
 ## 1.0.0
 
 * Stable
