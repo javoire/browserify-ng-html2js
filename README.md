@@ -53,7 +53,7 @@ gulp.task('scripts', function() {
       module: 'templates', // optional module name
       extension: 'ngt' // optionally specify what file types to look for
       baseDir: "src/js" // optionally specify base directory for filename
-      prefix: '' // specify a prefix to be added to the filename
+      prefix: '' // optionally specify a prefix to be added to the filename
     }))
     .bundle()
     .pipe(source('bundle.js'))

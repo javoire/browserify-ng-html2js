@@ -78,4 +78,20 @@ describe('ngHtml2Js', function(){
         };
       });
   });
+
+  it('should add prefix to filename if one is provided', function(done) {
+    var output = fs.readFileSync(__dirname + '/fixtures/output-prefix.js', 'utf-8');
+    browserify(__dirname + '/fixtures/app.js')
+      .transform(ngHtml2Js({
+        prefix: '/app.templates/'
+      }))
+      .bundle(function(err, bundle) {
+        if (err) {
+          done(err)
+        } else {
+          expect(output).to.equal(bundle.toString());
+          done();
+        };
+      });
+  });
 })
