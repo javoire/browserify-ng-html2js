@@ -1,10 +1,10 @@
 # Changelog
 
-# 1.1.0
+## 1.1.0
 
 * Support prefixes for template names
 
-# 1.0.1
+## 1.0.1
 
 * Template path is printed correctly on windows when using baseDir option
 
