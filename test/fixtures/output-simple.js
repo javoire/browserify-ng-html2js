@@ -2,6 +2,7 @@
 var template = require('./template.html')
 
 },{"./template.html":2}],2:[function(require,module,exports){
+var angular = require('angular');
 var ngModule = angular.module('template.html', []);
 ngModule.run(['$templateCache', function($templateCache) {
   $templateCache.put('template.html',
@@ -11,4 +12,4 @@ ngModule.run(['$templateCache', function($templateCache) {
 }]);
 
 module.exports = ngModule;
-},{}]},{},[1]);
+},{"angular":"angular"}]},{},[1]);
