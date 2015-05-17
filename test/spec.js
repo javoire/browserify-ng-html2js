@@ -13,6 +13,7 @@ describe('ngHtml2Js', function(){
   it('should compile html to a browserify module with parent directory included', function(done) {
     var output = fs.readFileSync(__dirname + '/fixtures/output-basedir.js', 'utf-8');
     browserify(__dirname + '/fixtures/app.js')
+      .external('angular')
       .transform(ngHtml2Js({
         baseDir: '/test'
       }))
@@ -28,6 +29,7 @@ describe('ngHtml2Js', function(){
 
   it('should put path in unix-like format even for windows-users', function(done) {
     browserify(__dirname + '/fixtures/app.js')
+      .external('angular')
       .transform(ngHtml2Js({
         baseDir: '/test'
       }))
@@ -44,6 +46,7 @@ describe('ngHtml2Js', function(){
   it('should compile html to a browserify wrapped angular module', function(done) {
     var output = fs.readFileSync(__dirname + '/fixtures/output.js', 'utf-8');
     browserify(__dirname + '/fixtures/app.js')
+      .external('angular')
       .transform(ngHtml2Js({
         module: 'templates'
       }))
@@ -59,7 +62,7 @@ describe('ngHtml2Js', function(){
 
   it('should compile html to a browserify wrapped angular module in CLI', function(done) {
     var output = fs.readFileSync(__dirname + '/fixtures/output.js', 'utf-8');
-    exec('browserify -t [./lib/index.js --module templates] ./test/fixtures/app.js', function (error, stdout, stderr) {
+    exec('browserify -t [./lib/index.js --module templates] --external angular ./test/fixtures/app.js', function (error, stdout, stderr) {
       expect(output).to.equal(stdout);
       done();
     });
@@ -68,6 +71,7 @@ describe('ngHtml2Js', function(){
   it('should compile html to a browserify wrapped angular module without a module', function(done) {
     var output = fs.readFileSync(__dirname + '/fixtures/output-simple.js', 'utf-8');
     browserify(__dirname + '/fixtures/app.js')
+      .external('angular')
       .transform(ngHtml2Js())
       .bundle(function(err, bundle) {
         if (err) {
@@ -82,6 +86,7 @@ describe('ngHtml2Js', function(){
   it('should add prefix to filename if one is provided', function(done) {
     var output = fs.readFileSync(__dirname + '/fixtures/output-prefix.js', 'utf-8');
     browserify(__dirname + '/fixtures/app.js')
+      .external('angular')
       .transform(ngHtml2Js({
         prefix: '/app.templates/'
       }))
