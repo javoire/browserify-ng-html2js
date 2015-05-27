@@ -99,4 +99,21 @@ describe('ngHtml2Js', function(){
         };
       });
   });
-})
+
+  it('should include a require angular statement inside module', function(done) {
+    var output = fs.readFileSync(__dirname + '/fixtures/output-require-angular.js', 'utf-8');
+    browserify(__dirname + '/fixtures/app.js')
+        .external('angular')
+        .transform(ngHtml2Js({
+          requireAngular: true
+        }))
+        .bundle(function(err, bundle) {
+          if (err) {
+            done(err)
+          } else {
+            expect(output).to.equal(bundle.toString());
+            done();
+          };
+        });
+  });
+});

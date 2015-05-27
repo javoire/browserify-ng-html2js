@@ -53,7 +53,9 @@ gulp.task('scripts', function() {
       module: 'templates', // optional module name
       extension: 'ngt' // optionally specify what file types to look for
       baseDir: "src/js" // optionally specify base directory for filename
-      prefix: '' // optionally specify a prefix to be added to the filename
+      prefix: '' // optionally specify a prefix to be added to the filename,
+      requireAngular: false // (default: false) optionally include `var angular = require('angular');` 
+                            // Supported in Angular 1.3.14 and above if you bundle angular with browserify
     }))
     .bundle()
     .pipe(source('bundle.js'))
