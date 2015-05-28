@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2
+
+* Generation of `require('angular')` is optional
+
 ## 1.1.0
 
 * Support prefixes for template names
