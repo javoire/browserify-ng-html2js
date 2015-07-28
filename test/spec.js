@@ -10,7 +10,7 @@ var browserify = require('browserify'),
 
 describe('ngHtml2Js', function(){
 
-  /*it('should compile html to a browserify module with parent directory included', function(done) {
+  it('should compile html to a browserify module with parent directory included', function(done) {
     var output = fs.readFileSync(__dirname + '/fixtures/output-basedir.js', 'utf-8');
     browserify(__dirname + '/fixtures/app.js')
       .external('angular')
@@ -115,7 +115,7 @@ describe('ngHtml2Js', function(){
             done();
           };
         });
-  }); */
+  });
 
   it('should strip the BOM from the beginning of the file if it exists', function(done) {
     
@@ -129,5 +129,5 @@ describe('ngHtml2Js', function(){
           done();
         };
       });
-  })
+  });
 });
