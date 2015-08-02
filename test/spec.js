@@ -116,4 +116,18 @@ describe('ngHtml2Js', function(){
           };
         });
   });
+
+  it('should strip the BOM from the beginning of the file if it exists', function(done) {
+    
+    browserify(__dirname + '/fixtures/bom-template.html')
+      .transform(ngHtml2Js())
+      .bundle(function(err, bundle) {
+        if (err) {
+          done(err)
+        } else {
+          expect(bundle.toString().match(/\ufeff/)).to.be.null;
+          done();
+        };
+      });
+  });
 });
