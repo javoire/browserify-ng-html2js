@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3
+
+* Strip BOM from start of files
+
 ## 1.1.2
 
 * Generation of `require('angular')` is optional
