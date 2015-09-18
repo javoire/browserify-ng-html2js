@@ -2,6 +2,7 @@ var browserify = require('browserify'),
     fs = require('fs'),
     ngHtml2Js = require('../lib'),
     source = require('vinyl-source-stream'),
+    transformify = require('transformify'),
     expect = require('chai').expect,
     cwd = process.cwd(),
     path = require('path'),
@@ -57,6 +58,31 @@ describe('ngHtml2Js', function(){
           expect(output).to.equal(bundle.toString());
           done();
         };
+      });
+  });
+
+  it('should honor earlier transforms', function(done) {
+    var output = fs.readFileSync(__dirname + '/fixtures/output-uppercase.js', 'utf-8');
+    browserify(__dirname + '/fixtures/app.js')
+      .external('angular')
+      .transform(function(file){
+        return transformify(function(s) {
+          if(/\.html?/.test(file)) {
+            return s.toUpperCase();
+          }
+          return s;
+        })();
+      })
+      .transform(ngHtml2Js({
+        module: 'templates'
+      }))
+      .bundle(function(err, bundle) {
+        if (err) {
+          done(err)
+        } else {
+          expect(output).to.equal(bundle.toString());
+          done();
+        }
       });
   });
 
