@@ -15,7 +15,8 @@
   "license": "MIT",
   "dependencies": {
     "ng-html2js": "^2.0.0",
-    "through": "^2.3.6"
+    "through": "^2.3.6",
+    "transformify": "^0.1.2"
   },
   "devDependencies": {
     "browserify": "^5.10.0",
