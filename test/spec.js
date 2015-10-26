@@ -144,7 +144,7 @@ describe('ngHtml2Js', function(){
   });
 
   it('should strip the BOM from the beginning of the file if it exists', function(done) {
-    
+
     browserify(__dirname + '/fixtures/bom-template.html')
       .transform(ngHtml2Js())
       .bundle(function(err, bundle) {
@@ -155,5 +155,23 @@ describe('ngHtml2Js', function(){
           done();
         };
       });
+  });
+
+  it('should strip the path before the part provided if present', function (done) {
+    var output = fs.readFileSync(__dirname + '/fixtures/output-strippathbefore.js', 'utf-8');
+    browserify(__dirname + '/fixtures/app.js')
+    .external('angular')
+    .transform(ngHtml2Js({
+      stripPathBefore: 'fixtures/'
+    }))
+    .bundle(function (err, bundle) {
+      if (err) {
+        done(err)
+      } else {
+        expect(output).to.equal(bundle.toString());
+        done();
+      }
+      ;
+    });
   });
 });
