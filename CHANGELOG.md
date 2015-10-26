@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.5
+
+* Strip parts of the filepath (stripPathBefore)
+
+## 1.1.4
+
+* Honor upstream transforms
+
 ## 1.1.3
 
 * Strip BOM from start of files
