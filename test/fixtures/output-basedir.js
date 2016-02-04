@@ -10,5 +10,5 @@ ngModule.run(['$templateCache', function($templateCache) {
     '');
 }]);
 
-module.exports = ngModule;
+module.exports = "/fixtures/template.html";
 },{}]},{},[1]);
