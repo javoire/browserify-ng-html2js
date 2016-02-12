@@ -10,5 +10,5 @@ ngModule.run(['$templateCache', function($templateCache) {
     '');
 }]);
 
-module.exports = ngModule;
+module.exports = "/app.templates/template.html";
 },{}]},{},[1]);
