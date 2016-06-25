@@ -78,6 +78,28 @@ module.run(["$templateCache", function($templateCache) {
 }]);
 ```
 
+## Example
+
+To use the cached template in your browserified app. Simply `require` it and depend on it in your angular app.
+
+The example below illustrates the simple case (with no options) where the generated angular module containing the template is named after the filename of the template. And the name of the template that is put in angulars `$templateCache` is also the filename of the template.
+
+```js
+var angular = require('angular');
+
+require('ui-router');
+
+angular.module('myApp', [
+  'ui.router',
+  require('./templates/home.html') // it exports the name of the generated angular module: 'home.html'
+]).config(function($stateProvider){
+  $stateProvider.state('home', {
+    url: '/',
+    templateUrl: 'home.html' // this is the template identifier that's put in angulars $templateCache
+  });
+}};
+```
+
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
