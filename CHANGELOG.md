@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+
+* `stripPathBefore` supports RegExp
+
 ## 1.2.0
 
 * exports filename instead of ngModule (https://github.com/javoire/browserify-ng-html2js/pull/31)
