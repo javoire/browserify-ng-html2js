@@ -17,7 +17,7 @@ Use in either package.json or with gulp:
 ### a) Package.json
 
 Add the transform in package.json:
-```JavaScript
+```js
 {  
   // ...
   "browserify": {
@@ -28,7 +28,7 @@ Add the transform in package.json:
 
 The templates will be available in their own modules based on their file name:
 
-```JavaScript
+```js
 angular.module('home.html', []).run(["$templateCache", function($templateCache) {
   $templateCache.put('home.html',
     '<h2>Home</h2>\n' +
@@ -41,7 +41,7 @@ angular.module('home.html', []).run(["$templateCache", function($templateCache) 
 
 Add it to the browserify object and optionally specify a module name. This will attach all templates to the same module.
 
-```JavaScript
+```js
 var gulp  = require('gulp'),
     browserify = require('browserify'),
     ngHtml2Js = require('browserify-ng-html2js'),
@@ -64,7 +64,7 @@ gulp.task('scripts', function() {
 });
 ```
 Output:
-```JavaScript
+```js
 try {
   module = angular.module('templates');
 } catch (e) {
@@ -76,6 +76,28 @@ module.run(["$templateCache", function($templateCache) {
     '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate commodi, dolor vero. Temporibus eaque aliquam repudiandae dolore nemo, voluptas voluptatibus quod at officiis, voluptates adipisci pariatur expedita, quos ducimus inventore.</p>\n' +
     '');
 }]);
+```
+
+## Example
+
+To use the cached template in your browserified app. Simply `require` it and depend on it in your angular app.
+
+The example below illustrates the simple case (with no options) where the generated angular module containing the template is named after the filename of the template. And the name of the template that is put in angulars `$templateCache` is also the filename of the template.
+
+```js
+var angular = require('angular');
+
+require('ui-router');
+
+angular.module('myApp', [
+  'ui.router',
+  require('./templates/home.html') // it exports the name of the generated angular module: 'home.html'
+]).config(function($stateProvider){
+  $stateProvider.state('home', {
+    url: '/',
+    templateUrl: 'home.html' // this is the template identifier that's put in angulars $templateCache
+  });
+});
 ```
 
 ## License
