@@ -17,7 +17,7 @@ Use in either package.json or with gulp:
 ### a) Package.json
 
 Add the transform in package.json:
-```JavaScript
+```js
 {  
   // ...
   "browserify": {
@@ -28,7 +28,7 @@ Add the transform in package.json:
 
 The templates will be available in their own modules based on their file name:
 
-```JavaScript
+```js
 angular.module('home.html', []).run(["$templateCache", function($templateCache) {
   $templateCache.put('home.html',
     '<h2>Home</h2>\n' +
@@ -41,7 +41,7 @@ angular.module('home.html', []).run(["$templateCache", function($templateCache) 
 
 Add it to the browserify object and optionally specify a module name. This will attach all templates to the same module.
 
-```JavaScript
+```js
 var gulp  = require('gulp'),
     browserify = require('browserify'),
     ngHtml2Js = require('browserify-ng-html2js'),
@@ -64,7 +64,7 @@ gulp.task('scripts', function() {
 });
 ```
 Output:
-```JavaScript
+```js
 try {
   module = angular.module('templates');
 } catch (e) {
@@ -97,7 +97,7 @@ angular.module('myApp', [
     url: '/',
     templateUrl: 'home.html' // this is the template identifier that's put in angulars $templateCache
   });
-}};
+});
 ```
 
 ## License
